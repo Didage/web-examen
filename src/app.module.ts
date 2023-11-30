@@ -3,6 +3,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { FotoModule } from './foto/foto.module';
+import { FotoEntity } from './foto/foto.entity';
+import { AlbumEntity } from './album/album.entity';
+import { RedSocialEntity } from './redsocial/redsocial.entity';
+import { UsuarioEntity } from './usuario/usuario.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -12,11 +17,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     username: 'postgres',
     password: '1234',
     database: 'exam_db',
-    entities: [],
+    entities: [FotoEntity, AlbumEntity, RedSocialEntity, UsuarioEntity],
     dropSchema: true,
     synchronize: true,
     keepConnectionAlive: true
-  })],
+  }), FotoModule],
   controllers: [AppController],
   providers: [AppService],
 })
