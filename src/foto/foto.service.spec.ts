@@ -81,4 +81,20 @@ describe('FotoService', () => {
     expect(storedFoto.apertura).toEqual(newFoto.apertura);
     expect(storedFoto.velObturacion).toEqual(newFoto.velObturacion);
   });
+
+  it('update should throw an exception for an invalid foto', async () => {
+    const foto: FotoEntity = {
+      fotoId: faker.lorem.sentence(),
+      iso: 100,
+      velObturacion: 50,
+      apertura: 4,
+      fecha: "30-11-23",
+      usuario: faker.lorem.sentence(),
+      album: faker.lorem.sentence(),
+    };
+    await expect(() => service.create(foto)).rejects.toHaveProperty(
+      'message',
+      'Valores de exposición no válidos.',
+    );
+  });
 });
