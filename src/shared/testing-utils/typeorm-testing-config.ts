@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { FotoEntity } from 'src/foto/foto.entity';
 
 
 export const TypeOrmTestingConfig = () => [
@@ -7,9 +8,9 @@ export const TypeOrmTestingConfig = () => [
    type: 'sqlite',
    database: ':memory:',
    dropSchema: true,
-   entities: [],
+   entities: [FotoEntity],
    synchronize: true,
    keepConnectionAlive: true
  }),
- TypeOrmModule.forFeature([]),
+ TypeOrmModule.forFeature([FotoEntity]),
 ];

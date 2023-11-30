@@ -29,11 +29,11 @@ export class FotoService {
             'Apertura no válida.',
             BusinessError.NOT_FOUND,
           );
-          if (
+          if (!(
             Foto.iso > (6400-10)/2 && Foto.velObturacion > (250-2)/2 ||
             Foto.iso > (6400-10)/2 && Foto.apertura > (32-1)/2 ||
             Foto.velObturacion > (250-2)/2 && Foto.apertura > (32-1)/2
-          ) {
+          )) {
           throw new BusinessLogicException(
             'Valores de exposición no válidos.',
             BusinessError.NOT_FOUND,
