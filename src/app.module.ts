@@ -8,7 +8,6 @@ import { FotoEntity } from './foto/foto.entity';
 import { AlbumEntity } from './album/album.entity';
 import { RedSocialEntity } from './redsocial/redsocial.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
-import { FotoAlbumService } from './foto-album/foto-album.service';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -24,6 +23,6 @@ import { FotoAlbumService } from './foto-album/foto-album.service';
     keepConnectionAlive: true
   }), FotoModule],
   controllers: [AppController],
-  providers: [AppService, FotoAlbumService],
+  providers: [AppService],
 })
 export class AppModule {}
