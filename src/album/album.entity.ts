@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { FotoEntity } from '../foto/foto.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class AlbumEntity {
 
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  albumId: string;
 
   @Column()
   fechaInicio: Date;
@@ -15,5 +16,8 @@ export class AlbumEntity {
 
   @Column()
   titulo: string;
-  
+
+  @OneToMany(() => FotoEntity, (foto) => foto.album)
+  fotos: FotoEntity[];
+
 }

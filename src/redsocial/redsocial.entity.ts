@@ -1,11 +1,12 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { UsuarioEntity } from '../usuario/usuario.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class RedSocialEntity {
 
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  redSocialId: string;
 
   @Column()
   nombre: string;
@@ -13,4 +14,6 @@ export class RedSocialEntity {
   @Column()
   slogan: string;
   
+  @OneToMany(() => UsuarioEntity, (usuario) => usuario.redSocial)
+  usuarios: UsuarioEntity[];
 }

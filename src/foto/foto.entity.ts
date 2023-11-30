@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { AlbumEntity } from '../album/album.entity';
+import { UsuarioEntity } from '../usuario/usuario.entity';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class FotoEntity {
 
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  fotoId: string;
 
   @Column()
   iso: number;
@@ -18,4 +20,13 @@ export class FotoEntity {
 
   @Column()
   fecha: string;
+
+  @ManyToOne(() => UsuarioEntity, usuario => usuario.fotos)
+  @JoinColumn({ name: 'usuarioId' })
+  usuario: UsuarioEntity;
+
+  @ManyToOne(() => AlbumEntity, album => album.fotos)
+  @JoinColumn({ name: 'albumId' })
+  album: AlbumEntity;
+  
 }

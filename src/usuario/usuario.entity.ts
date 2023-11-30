@@ -1,16 +1,24 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { FotoEntity } from 'src/foto/foto.entity';
+import { RedSocialEntity } from 'src/redsocial/redsocial.entity';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class UsuarioEntity {
 
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  usuarioId: string;
 
   @Column()
   nombre: string;
 
   @Column()
   telefono: string;
-  
+
+  @ManyToOne(() => RedSocialEntity, redSocial => redSocial.usuarios)
+  @JoinColumn({ name: 'redSocialId' })
+  redSocial: RedSocialEntity;
+
+  @OneToMany(() => FotoEntity, (foto) => foto.usuario)
+  fotos: FotoEntity[];
 }
