@@ -4,9 +4,12 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
 
-import { faker } from '@faker-js/faker';
-import { FotoService } from './foto.service';
-import { FotoEntity } from './foto.entity';
+
+// import { faker } from '@faker-js/faker';
+import { FotoService } from '../foto/foto.service';
+import { FotoEntity } from '../foto/foto.entity';
+import { UsuarioEntity } from '../usuario/usuario.entity';
+import { AlbumEntity } from '../album/album.entity';
 
 describe('FotoService', () => {
   let service: FotoService;
@@ -37,7 +40,7 @@ describe('FotoService', () => {
     });
 
     fotosList.push(fotoValida);
-
+    repository.save(fotoValida);
   };
 
   it('findAll should return all fotos', async () => {
@@ -59,15 +62,31 @@ describe('FotoService', () => {
 
 
   it('create should return a new foto', async () => {
+
+    // const usuario: UsuarioEntity = {
+    //   usuarioId: "USR-ID-01",
+    //   nombre: "Jhon Doe",
+    //   telefono: "+57-3451234567",
+    //   redSocial:null,
+    //   fotos: []
+    // }
+
+    // const album: AlbumEntity = {
+    //   albumId: "ALM-ID-01",
+    //   fechaInicio: new Date("01-11-23"),
+    //   fechaFin: new Date("30-12-23"),
+    //   titulo: "Autogol",
+    //   fotos:[]
+    // }
     
     const foto: FotoEntity = {
-      fotoId: faker.lorem.sentence(),
+      fotoId: "FT_ID-01",
       iso: 1600,
-      velObturacion: 250,
-      apertura: 4,
-      fecha: "30-11-23",
-      usuario: faker.lorem.sentence(),
-      album: faker.lorem.sentence(),
+      velObturacion: 200,
+      apertura: 30,
+      fecha: new Date("30-11-23"),
+      usuario: null,
+      album: null,
     };
 
     const newFoto: FotoEntity = await service.create(foto);
@@ -83,14 +102,29 @@ describe('FotoService', () => {
   });
 
   it('update should throw an exception for an invalid foto', async () => {
+    const usuario: UsuarioEntity = {
+      usuarioId: "USR-ID-01",
+      nombre: "Jhon Doe",
+      telefono: "+57-3451234567",
+      redSocial:null,
+      fotos: []
+    }
+
+    const album: AlbumEntity = {
+      albumId: "ALM-ID-01",
+      fechaInicio: new Date("01-11-23"),
+      fechaFin: new Date("30-12-23"),
+      titulo: "Autogol",
+      fotos:[]
+    }
     const foto: FotoEntity = {
-      fotoId: faker.lorem.sentence(),
+      fotoId: "FT_ID-02",
       iso: 100,
       velObturacion: 50,
       apertura: 4,
-      fecha: "30-11-23",
-      usuario: faker.lorem.sentence(),
-      album: faker.lorem.sentence(),
+      fecha: new Date("30-11-23"),
+      usuario: usuario,
+      album: album,
     };
     await expect(() => service.create(foto)).rejects.toHaveProperty(
       'message',

@@ -24,9 +24,9 @@ export class FotoAlbumService {
         const Album: AlbumEntity = await this.AlbumRepository.findOne({where: {albumId: AlbumId}, relations: ["Fotos"]})
         if (!Album)
           throw new BusinessLogicException("El album especificado no existe.", BusinessError.NOT_FOUND);
-    
+        if(Foto.fecha<Album.fechaInicio||Foto.fecha>Album.fechaFin)
+          throw new BusinessLogicException("La fecha de la foto no es compatible con las fechas del album.", BusinessError.NOT_FOUND); 
         Album.fotos.push(Foto);
         return await this.AlbumRepository.save(Album);
       }
-    
 }

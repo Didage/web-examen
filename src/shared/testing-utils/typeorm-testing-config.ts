@@ -1,6 +1,9 @@
 /* eslint-disable prettier/prettier */
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FotoEntity } from 'src/foto/foto.entity';
+import { FotoEntity } from '../../foto/foto.entity';
+import { AlbumEntity } from '../../album/album.entity';
+import { UsuarioEntity } from '../../usuario/usuario.entity';
+import { RedSocialEntity } from '../../redsocial/redsocial.entity';
 
 
 export const TypeOrmTestingConfig = () => [
@@ -8,9 +11,9 @@ export const TypeOrmTestingConfig = () => [
    type: 'sqlite',
    database: ':memory:',
    dropSchema: true,
-   entities: [FotoEntity],
+   entities: [FotoEntity, AlbumEntity, UsuarioEntity, RedSocialEntity],
    synchronize: true,
    keepConnectionAlive: true
  }),
- TypeOrmModule.forFeature([FotoEntity]),
+ TypeOrmModule.forFeature([FotoEntity, AlbumEntity, UsuarioEntity, RedSocialEntity]),
 ];

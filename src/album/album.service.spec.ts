@@ -1,25 +1,21 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { FotoAlbumService } from '../foto-album/foto-album.service';
-import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
-import { FotoEntity } from '../foto/foto.entity';
+import { AlbumService } from '../album/album.service';
 import { AlbumEntity } from '../album/album.entity';
+import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
+import { Repository } from 'typeorm';
 
-
-describe('FotoAlbumService', () => {
-  let service: FotoAlbumService;
-  let fotoRepository: Repository<FotoEntity>;
-  let albumRepository: Repository<AlbumEntity>;
-
+describe('AlbumServiceService', () => {
+  let service: AlbumService;
+  let repository: Repository<AlbumEntity>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [...TypeOrmTestingConfig()],
-      providers: [FotoAlbumService],
+      providers: [AlbumService],
     }).compile();
 
-    service = module.get<FotoAlbumService>(AlbumService);
+    service = module.get<AlbumService>(AlbumService);
     repository = module.get<Repository<AlbumEntity>>(
       getRepositoryToken(AlbumEntity),
     );

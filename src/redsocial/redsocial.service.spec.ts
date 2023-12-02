@@ -1,15 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { RedsocialService } from './redsocial.service';
+import { RedSocial } from '../redsocial/redsocial.service';
+import { Repository } from 'typeorm';
+import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-config';
+
 
 describe('RedsocialService', () => {
-  let service: RedsocialService;
+  let service: RedSocialService;
+  let repository: Repository<RedSocialEntity>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [RedsocialService],
+      imports: [...TypeOrmTestingConfig()],
+      providers: [RedSocialService],
     }).compile();
 
-    service = module.get<RedsocialService>(RedsocialService);
+    service = module.get<RedSocialService>(RedSocialService);
+    repository = module.get<Repository<RedSocialEntity>>(
+      getRepositoryToken(RedSocialEntity),
+    );
+    await seedDatabase();
   });
 
   it('should be defined', () => {

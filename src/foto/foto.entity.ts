@@ -19,7 +19,7 @@ export class FotoEntity {
   apertura: number;
 
   @Column()
-  fecha: string;
+  fecha: Date;
 
   @ManyToOne(() => UsuarioEntity, usuario => usuario.fotos)
   @JoinColumn({ name: 'usuarioId' })

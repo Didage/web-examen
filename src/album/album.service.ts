@@ -38,11 +38,18 @@ export class AlbumService {
         const Album: AlbumEntity = await this.AlbumRepository.findOne({
           where: { albumId },
         });
-        if (!Album)
+        if (!Album) {
           throw new BusinessLogicException(
             'El album no fue encontrado.',
             BusinessError.NOT_FOUND,
           );
+        }
+        else if (Album.fotos.length>0){
+          throw new BusinessLogicException(
+            'Un album con fotos no se puede borrar.',
+            BusinessError.NOT_FOUND,
+          );
+        }
         await this.AlbumRepository.remove(Album);
       }
 }

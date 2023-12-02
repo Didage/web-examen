@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RedSocialEntity } from './redsocial.entity';
-import { RedSocialService } from './redsocial.service';
+import { RedSocialEntity } from '../redsocial/redsocial.entity';
+import { RedSocialService } from '../redsocial/redsocial.service';
 
 @Module({
     imports: [TypeOrmModule.forFeature([RedSocialEntity])],
