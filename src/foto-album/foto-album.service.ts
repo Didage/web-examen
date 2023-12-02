@@ -17,16 +17,17 @@ export class FotoAlbumService {
     ) {}
 
     async addFotoToAlbum(AlbumId: string, FotoId: string): Promise<AlbumEntity> {
-        const Foto: FotoEntity = await this.FotoRepository.findOne({where: {fotoId: FotoId}});
-        if (!Foto)
+        const foto: FotoEntity = await this.FotoRepository.findOne({where: {fotoId: FotoId}});
+        if (!foto)
           throw new BusinessLogicException("La foto especificada no existe.", BusinessError.NOT_FOUND);
       
-        const Album: AlbumEntity = await this.AlbumRepository.findOne({where: {albumId: AlbumId}, relations: ["Fotos"]})
-        if (!Album)
+        const album: AlbumEntity = await this.AlbumRepository.findOne({where: {albumId: AlbumId}, relations: ["fotos"]})
+        if (!album)
           throw new BusinessLogicException("El album especificado no existe.", BusinessError.NOT_FOUND);
-        if(Foto.fecha<Album.fechaInicio||Foto.fecha>Album.fechaFin)
+        if(foto.fecha<album.fechaInicio||foto.fecha>album.fechaFin)
           throw new BusinessLogicException("La fecha de la foto no es compatible con las fechas del album.", BusinessError.NOT_FOUND); 
-        Album.fotos.push(Foto);
-        return await this.AlbumRepository.save(Album);
+        album.fotos.push(foto);
+        foto.album = album;
+        return await this.AlbumRepository.save(album);
       }
 }

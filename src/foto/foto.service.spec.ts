@@ -32,11 +32,21 @@ describe('FotoService', () => {
   const seedDatabase = async () => {
     repository.clear();
     fotosList = [];
+
+    // const album: AlbumEntity = {
+    //   albumId: "ALM-ID-01",
+    //   fechaInicio: new Date("01-11-23"),
+    //   fechaFin: new Date("30-12-23"),
+    //   titulo: "Autogol",
+    //   fotos:[]
+    // }
+
     const fotoValida: FotoEntity = await repository.save({
       iso: 1600,
       velObturacion: 250,
       apertura: 4,
       fecha: "30-11-23",
+      album: null,
     });
 
     fotosList.push(fotoValida);
@@ -62,23 +72,6 @@ describe('FotoService', () => {
 
 
   it('create should return a new foto', async () => {
-
-    // const usuario: UsuarioEntity = {
-    //   usuarioId: "USR-ID-01",
-    //   nombre: "Jhon Doe",
-    //   telefono: "+57-3451234567",
-    //   redSocial:null,
-    //   fotos: []
-    // }
-
-    // const album: AlbumEntity = {
-    //   albumId: "ALM-ID-01",
-    //   fechaInicio: new Date("01-11-23"),
-    //   fechaFin: new Date("30-12-23"),
-    //   titulo: "Autogol",
-    //   fotos:[]
-    // }
-    
     const foto: FotoEntity = {
       fotoId: "FT_ID-01",
       iso: 1600,
@@ -101,7 +94,7 @@ describe('FotoService', () => {
     expect(storedFoto.velObturacion).toEqual(newFoto.velObturacion);
   });
 
-  it('update should throw an exception for an invalid foto', async () => {
+  it('create should throw an exception for an invalid foto', async () => {
     const usuario: UsuarioEntity = {
       usuarioId: "USR-ID-01",
       nombre: "Jhon Doe",
@@ -130,5 +123,16 @@ describe('FotoService', () => {
       'message',
       'Valores de exposición no válidos.',
     );
+  });
+
+  it('delete should remove a foto', async () => {
+    const foto: FotoEntity = fotosList[0];
+    await service.delete(foto.fotoId);
+    const deletedFoto: FotoEntity = await repository.findOne({ where: { fotoId: foto.fotoId } })
+    expect(deletedFoto).toBeNull();
+  });
+
+  it('delete should throw an exception for an invalid foto', async () => {
+    await expect(() => service.delete("0")).rejects.toHaveProperty("message", "La foto no fue encontrada.")
   });
 });

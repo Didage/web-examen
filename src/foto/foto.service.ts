@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -16,33 +17,33 @@ export class FotoService {
         private readonly AlbumRepository: Repository<AlbumEntity>,
       ) {}
     
-      async create(Foto: FotoEntity): Promise<FotoEntity> {
-        if (Foto.iso <= 10 && Foto.iso >= 6400)
+      async create(foto: FotoEntity): Promise<FotoEntity> {
+        if (foto.iso <= 10 && foto.iso >= 6400)
           throw new BusinessLogicException(
             'ISO no válido.',
             BusinessError.NOT_FOUND,
           );
-        if (!(Foto.velObturacion >= 2 && Foto.velObturacion <= 250))
+        if (!(foto.velObturacion >= 2 && foto.velObturacion <= 250))
           throw new BusinessLogicException(
             'Vel. de obturación no válida.',
             BusinessError.NOT_FOUND,
         );
-        if (!(Foto.apertura >= 1 && Foto.apertura <= 32))
+        if (!(foto.apertura >= 1 && foto.apertura <= 32))
           throw new BusinessLogicException(
             'Apertura no válida.',
             BusinessError.NOT_FOUND,
           );
         if (!(
-          Foto.iso > (6400-10)/2 && Foto.velObturacion > (250-2)/2 ||
-          Foto.iso > (6400-10)/2 && Foto.apertura > (32-1)/2 ||
-          Foto.velObturacion > (250-2)/2 && Foto.apertura > (32-1)/2
+          foto.iso > (6400-10)/2 && foto.velObturacion > (250-2)/2 ||
+          foto.iso > (6400-10)/2 && foto.apertura > (32-1)/2 ||
+          foto.velObturacion > (250-2)/2 && foto.apertura > (32-1)/2
         )) {
         throw new BusinessLogicException(
           'Valores de exposición no válidos.',
           BusinessError.NOT_FOUND,
           );
         }
-      return await this.FotoRepository.save(Foto);
+      return await this.FotoRepository.save(foto);
     }
 
       async findAll(): Promise<FotoEntity[]> {
@@ -52,32 +53,38 @@ export class FotoService {
       }
     
       async findOne(fotoId: string): Promise<FotoEntity> {
-        const Foto: FotoEntity = await this.FotoRepository.findOne({
-          where: { fotoId },
+        const foto: FotoEntity = await this.FotoRepository.findOne({
+          where: { fotoId }, relations: ["album"]
         });
-        if (!Foto)
+        if (!foto)
           throw new BusinessLogicException(
             'La foto no fue encontrada.',
             BusinessError.NOT_FOUND,
           );
-        return Foto;
+        return foto;
       }
 
       async delete(fotoId: string) {
-        const Foto: FotoEntity = await this.FotoRepository.findOne({
-          where: { fotoId },
+        const foto: FotoEntity = await this.FotoRepository.findOne({
+          where: { fotoId }, relations: ["album"]
         });
-        if (!Foto) {
+        
+        if (!foto) {
           throw new BusinessLogicException(
             'La foto no fue encontrada.',
             BusinessError.NOT_FOUND,
           ); 
-        } else if (Foto.album.fotos.length == 1) {
-          const Album = Foto.album
-          await this.FotoRepository.remove(Foto);
-          await this.AlbumRepository.remove(Album)
-        };
-        await this.FotoRepository.remove(Foto);
+        } else if (foto.album){
+          if(foto.album.fotos.values.length==1) {
+            const albumId = foto.album.albumId;
+            const album: AlbumEntity = await this.AlbumRepository.findOne({
+              where: { albumId }, relations: ["fotos"]
+            });
+            await this.FotoRepository.remove(foto);
+            await this.AlbumRepository.remove(album)
+          };
+      }
+        await this.FotoRepository.remove(foto);
         
       }
 

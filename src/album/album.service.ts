@@ -36,7 +36,7 @@ export class AlbumService {
 
       async delete(albumId: string) {
         const Album: AlbumEntity = await this.AlbumRepository.findOne({
-          where: { albumId },
+          where: { albumId }, relations: ["fotos"]
         });
         if (!Album) {
           throw new BusinessLogicException(
@@ -44,7 +44,7 @@ export class AlbumService {
             BusinessError.NOT_FOUND,
           );
         }
-        else if (Album.fotos.length>0){
+        else if (Album.fotos.values.length>0){
           throw new BusinessLogicException(
             'Un album con fotos no se puede borrar.',
             BusinessError.NOT_FOUND,
