@@ -1,12 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UseInterceptors } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 
 import { AlbumService } from '../album/album.service';
 import { AlbumDto } from '../album/album.dto';
 import { AlbumEntity } from '../album/album.entity';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
 @Controller('albums')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class AlbumController {
 constructor(private readonly albumService: AlbumService) {}
 

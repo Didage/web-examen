@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseInterceptors } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
-import { RedSocialEntity } from './redSocial.entity';
-import { RedSocialService } from './redSocial.service';
-import { RedSocialDto } from './redSocial.dto';
+import { RedSocialEntity } from '../redsocial/redsocial.entity';
+import { RedSocialService } from '../redsocial/redsocial.service';
+import { RedSocialDto } from '../redsocial/redsocial.dto';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
-@Controller('redSocials')
+@Controller('redes')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class RedSocialController {
   constructor(private readonly redSocialService: RedSocialService) {}
   @Post()

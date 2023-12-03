@@ -89,7 +89,6 @@ describe('FotoAlbumService', () => {
     expect(result.fotos[0]).not.toBeNull();
     expect(result.fotos[0].iso).toBe(newFoto.iso);
     expect(result.fotos[0].velObturacion).toBe(newFoto.velObturacion);
-    expect(storedFoto.album.albumId).toEqual(storedFoto.album.albumId);
     expect(storedAlbum.fotos[0].fotoId).toEqual(storedFoto.fotoId);
   });
 

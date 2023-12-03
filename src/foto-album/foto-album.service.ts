@@ -27,7 +27,6 @@ export class FotoAlbumService {
         if(foto.fecha<album.fechaInicio||foto.fecha>album.fechaFin)
           throw new BusinessLogicException("La fecha de la foto no es compatible con las fechas del album.", BusinessError.NOT_FOUND); 
         album.fotos.push(foto);
-        foto.album = album;
         return await this.AlbumRepository.save(album);
       }
 }

@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, HttpCode, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, UseInterceptors } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { FotoEntity } from './foto.entity';
 import { FotoService } from './foto.service';
 import { FotoDto } from './foto.dto';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
 @Controller('fotos')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class FotoController {
     constructor(private readonly fotoService: FotoService) {}
 

@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Param, Post } from '@nestjs/common';
+import { Controller, Param, Post, UseInterceptors } from '@nestjs/common';
 import { FotoAlbumService } from './foto-album.service';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
 @Controller('albums')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class FotoAlbumController {
 
   constructor(private readonly fotoAlbumService: FotoAlbumService){}

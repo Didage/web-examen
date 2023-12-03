@@ -1,0 +1,1959 @@
+{
+	"info": {
+		"_postman_id": "ba877fba-364c-468a-aab3-7fb2b280c435",
+		"name": "Redes Sociales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23039942"
+	},
+	"item": [
+		{
+			"name": "Crear RedSocial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.collectionVariables.set(\"redSocial_id\", data.redSocialId);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"KitKot\",\n    \"slogan\": \"El mejor slogan que puedes tener es el que escribes tú mismo!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/redes",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"redes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear RedSocial",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"KitKot\",\n    \"slogan\": \"El mejor slogan que puedes tener es el que escribes tú mismo!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/redes",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"redes"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "146"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"92-tYTH048RVDPiNCJbYq02AjuZiJw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 14:34:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"KitKot\",\n    \"slogan\": \"El mejor slogan que puedes tener es el que escribes tú mismo!\",\n    \"redSocialId\": \"d3dff19c-98e5-49a9-b0d9-1240722a1ce6\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.collectionVariables.set(\"album_id\", data.albumId);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fechaInicio\": \"2023-11-23\",\n    \"fechaFin\": \"2023-12-10\",\n    \"titulo\": \"Autogol\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Album",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fechaInicio\": \"2023-11-23\",\n    \"fechaFin\": \"2023-12-10\",\n    \"titulo\": \"Autogol\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/albums",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "120"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"78-L7t6jDcOWLqNpodNRbTAvbEV2hc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:20:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fechaInicio\": \"2023-11-23\",\n    \"fechaFin\": \"2023-12-10\",\n    \"titulo\": \"Autogol\",\n    \"albumId\": \"7aa6cf72-d430-4ec0-be51-17a41ca1ad04\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Album by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums",
+						"{{album_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Album by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"{{album_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "148"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"94-y/7qBKckfWyeT0T+tyHjdiv2bIU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:30:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"albumId\": \"5c90c10a-57b7-450c-9d62-c8b4b23c33a7\",\n    \"fechaInicio\": \"2023-11-23T05:00:00.000Z\",\n    \"fechaFin\": \"2023-12-10T05:00:00.000Z\",\n    \"titulo\": \"Autogol\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get invalid Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El album no fue encontrado.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums/0000",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums",
+						"0000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Invalid Album",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/albums/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-R0lHH0GfatF39NwvTZ6RiSj4OUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:36:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El album no fue encontrado.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums",
+						"{{album_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Album",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"{{album_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:31:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Invalid Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"    var data = pm.response.json();",
+							"    pm.expect(data.message).to.eql(\"El album no fue encontrado.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums/00000000-0000-0000-0000-000000000000",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Invalid Album",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/albums/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-R0lHH0GfatF39NwvTZ6RiSj4OUc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:40:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El album no fue encontrado.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Foto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.collectionVariables.set(\"foto_id\", data.fotoId);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"iso\": 1600,\n      \"velObturacion\": 200,\n      \"apertura\": 30,\n      \"fecha\": \"2023-11-30\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/fotos",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"fotos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Foto",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"iso\": 1600,\n      \"velObturacion\": 200,\n      \"apertura\": 30,\n      \"fecha\": \"2023-11-30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "115"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"73-Coh/NOtxjeulT3YkDqVD6R0/bHg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:43:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"iso\": 1600,\n    \"velObturacion\": 200,\n    \"apertura\": 30,\n    \"fecha\": \"2023-11-30\",\n    \"fotoId\": \"46bcf8f6-589c-4d4f-97fd-9e883de5b4a4\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Foto Inválida",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"Apertura no válida.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"iso\": 100,\n      \"velObturacion\": 50,\n      \"apertura\": 34,\n      \"fecha\": \"2023-11-30\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/fotos",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"fotos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Foto Inválida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"iso\": 100,\n      \"velObturacion\": 50,\n      \"apertura\": 34,\n      \"fecha\": \"2023-11-30\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"33-Xycb/mFZ5VxiLGU1dqZLxNPGzsQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:50:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Apertura no válida.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Foto by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/fotos/{{foto_id}}",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"fotos",
+						"{{foto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Foto by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos/{{foto_id}}",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos",
+								"{{foto_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-r9w15EUXO23JD47146Cqig0ZxdA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:47:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"fotoId\": \"c9707d3d-ffb6-48b8-8b1b-4bc86e629ffb\",\n    \"iso\": 1600,\n    \"velObturacion\": 200,\n    \"apertura\": 30,\n    \"fecha\": \"2023-11-30T05:00:00.000Z\",\n    \"album\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get invalid Foto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"La foto no fue encontrada.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/fotos/00000000-0000-0000-0000-000000000000",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"fotos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get invalid Foto",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39-Y4o8C+s2BTjwNQNEbO8rc4WUU90\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:48:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La foto no fue encontrada.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Fotos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get All Fotos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "317"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13d-+UeJMnO3/VVRtT1u0ASPrwsgRxI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:54:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"fotoId\": \"46bcf8f6-589c-4d4f-97fd-9e883de5b4a4\",\n        \"iso\": 1600,\n        \"velObturacion\": 200,\n        \"apertura\": 30,\n        \"fecha\": \"2023-11-30T05:00:00.000Z\",\n        \"usuario\": null,\n        \"album\": null\n    },\n    {\n        \"fotoId\": \"c9707d3d-ffb6-48b8-8b1b-4bc86e629ffb\",\n        \"iso\": 1600,\n        \"velObturacion\": 200,\n        \"apertura\": 30,\n        \"fecha\": \"2023-11-30T05:00:00.000Z\",\n        \"usuario\": null,\n        \"album\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Delete Foto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"   pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums",
+						"{{album_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Foto",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos/{{foto_id}}",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos",
+								"{{foto_id}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:55:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Invalid Foto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"    var data = pm.response.json();",
+							"    pm.expect(data.message).to.eql(\"La foto no fue encontrada.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/fotos/00000000-0000-0000-0000-000000000000",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"fotos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Invalid Foto",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/fotos/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"fotos",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39-Y4o8C+s2BTjwNQNEbO8rc4WUU90\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:56:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La foto no fue encontrada.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Album Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.collectionVariables.set(\"album_id\", data.albumId);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fechaInicio\": \"2023-11-23\",\n    \"fechaFin\": \"2023-12-10\",\n    \"titulo\": \"Autogol\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Foto Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.collectionVariables.set(\"foto_id\", data.fotoId);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"iso\": 1600,\n      \"velObturacion\": 200,\n      \"apertura\": 30,\n      \"fecha\": \"2023-11-30\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/fotos",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"fotos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Foto to Album",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}/fotos/{{foto_id}}",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"albums",
+						"{{album_id}}",
+						"fotos",
+						"{{foto_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Foto to Album",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/albums/{{album_id}}/fotos/{{foto_id}}",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"albums",
+								"{{album_id}}",
+								"fotos",
+								"{{foto_id}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "288"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"120-Kem6YmbzslRxCToWDH2g16me4yE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 15:59:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"albumId\": \"1b0e9861-b99a-4f2b-926e-20e16047d419\",\n    \"fechaInicio\": \"2023-11-23T05:00:00.000Z\",\n    \"fechaFin\": \"2023-12-10T05:00:00.000Z\",\n    \"titulo\": \"Autogol\",\n    \"fotos\": [\n        {\n            \"fotoId\": \"c7369880-3b8c-4989-a220-1f690319ae7f\",\n            \"iso\": 1600,\n            \"velObturacion\": 200,\n            \"apertura\": 30,\n            \"fecha\": \"2023-11-30T05:00:00.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"pm.collectionVariables.set(\"usuario_id\", data.usuarioId);",
+							"",
+							"pm.test(\"Status code is 201\", function () {",
+							"   pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Camilo\",\n    \"telefono\": \"3555644442\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/usuarios/",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Camilo\",\n    \"telefono\": \"3555644442\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "94"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5e-pBTZR3o5nepcHzPc8GHH8ZZ1kZo\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 16:02:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"nombre\": \"Camilo\",\n    \"telefono\": \"3555644442\",\n    \"usuarioId\": \"54f52547-1bc4-4f2a-9cf1-d7eb05cccbff\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Usuario Inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El teléfono debe tener 10 números.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Camilo\",\n    \"telefono\": \"+57-11113555644442\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/usuarios/",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Usuario Inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Camilo\",\n    \"telefono\": \"+57-11113555644442\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43-qK4UwgZSD4pXlPZemDMY4iuDrt8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 16:04:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El teléfono debe tener 10 números.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of usuarios > ' + 0, function () {",
+							"    var data = pm.response.json()",
+							"    pm.expect(data.length).to.greaterThan(0)",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/usuarios/",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7c-q6oQkz5QqtqIS4iL2mg9gkBwcww\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 16:05:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"usuarioId\": \"54f52547-1bc4-4f2a-9cf1-d7eb05cccbff\",\n        \"nombre\": \"Camilo\",\n        \"telefono\": \"3555644442\",\n        \"redSocial\": null,\n        \"fotos\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Usuario by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/usuarios/{{usuario_id}}",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Usuario by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/usuarios/{{usuario_id}}",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "94"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5e-ER3vg16PcfNAo71ru+dQKmY9XzQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 16:07:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"usuarioId\": \"54f52547-1bc4-4f2a-9cf1-d7eb05cccbff\",\n    \"nombre\": \"Camilo\",\n    \"telefono\": \"3555644442\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Usuario Inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"   pm.response.to.have.status(404);",
+							"});",
+							"",
+							"pm.test(\"Get expected error message\", function () {",
+							"   var data = pm.response.json();",
+							"   pm.expect(data.message).to.eql(\"El usuario no fue encontrado.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}:3000/api/v1/usuarios/00000000-0000-0000-0000-000000000000",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Usuario Inválido",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseURL}}:3000/api/v1/usuarios/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{baseURL}}"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"usuarios",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3c-HK4UNRG7CN8uTfwo3S+PceLrkC4\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 16:08:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"El usuario no fue encontrado.\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost"
+		},
+		{
+			"key": "album_id",
+			"value": ""
+		},
+		{
+			"key": "foto_id",
+			"value": ""
+		},
+		{
+			"key": "usuario_id",
+			"value": ""
+		}
+	]
+}

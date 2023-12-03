@@ -8,6 +8,10 @@ import { FotoEntity } from './foto/foto.entity';
 import { AlbumEntity } from './album/album.entity';
 import { RedSocialEntity } from './redsocial/redsocial.entity';
 import { UsuarioEntity } from './usuario/usuario.entity';
+import { AlbumModule } from './album/album.module';
+import { RedSocialModule } from './redsocial/redsocial.module';
+import { UsuarioModule } from './usuario/usuario.module';
+import { FotoAlbumModule } from './foto-album/foto-album.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -21,7 +25,7 @@ import { UsuarioEntity } from './usuario/usuario.entity';
     dropSchema: true,
     synchronize: true,
     keepConnectionAlive: true
-  }), FotoModule],
+  }), FotoModule, AlbumModule, RedSocialModule, UsuarioModule, FotoAlbumModule],
   controllers: [AppController],
   providers: [AppService],
 })

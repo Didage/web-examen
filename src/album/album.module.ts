@@ -10,4 +10,4 @@ import { AlbumController } from './album.controller';
     providers: [AlbumService],
     controllers: [AlbumController],
 })
-export class FotoModule {}
+export class AlbumModule {}

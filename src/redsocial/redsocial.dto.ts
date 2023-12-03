@@ -6,10 +6,6 @@ export class RedSocialDto {
     
   @IsString()
   @IsNotEmpty()
-  redSocialId: string;
-
-  @IsString()
-  @IsNotEmpty()
   nombre: string;
 
   @IsString()
