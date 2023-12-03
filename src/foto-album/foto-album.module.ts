@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FotoEntity } from '../foto/foto.entity';
 import { AlbumEntity } from '../album/album.entity';
 
-
 @Module({
   imports: [TypeOrmModule.forFeature([FotoEntity, AlbumEntity])],
   providers: [FotoAlbumService],
