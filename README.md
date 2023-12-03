@@ -1,6 +1,8 @@
 <h3>Diego Alejandro Tovar García</h3>
 <h3>201512531</h3>
 
+<p>Los casos de pruebas de postman se seleccionaron para probar los mismos casos probados en las pruebas de la lógica.</p>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
